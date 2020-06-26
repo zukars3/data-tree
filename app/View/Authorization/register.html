@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/app/View/Authorization/register.css"/>
+    <title>Register</title>
+</head>
+<body>
+<div>
+    <p id="error"><?php if(count($variables[0]) !== 0) { echo implode('', $variables); } else echo "" ?></p>
+    <form
+            method="post"
+            action="/register"
+            name="registration"
+            onsubmit="return validateForm()"
+    >
+        <div>
+            <div>
+                <label for="nickname">Nickname</label>
+                <input
+                        id="nickname"
+                        type="text"
+                        name="nickname"
+                        placeholder="name.surname123"
+                />
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="example@example.com"
+                />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="@Test5489"
+                />
+                <small>6-20 characters, one uppercase and one number.</small>
+            </div>
+        </div>
+        <div>
+            <button type="submit" name="register" id="register-button">Register
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        let valid = true;
+
+        var name = document.forms["registration"]["name"].value;
+
+        var nickname = document.forms["registration"]["nickname"].value;
+        var nicknameElement = document.forms["registration"]["nickname"];
+
+        if (nickname == "" || nickname.length < 4) {
+            nicknameElement.classList.add('is-invalid');
+            valid = false;
+        }
+
+        var email = document.forms["registration"]["email"].value;
+        var emailElement = document.forms["registration"]["email"];
+
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) || email == "") {
+            emailElement.classList.add('is-invalid');
+            valid = false;
+        }
+
+        var password = document.forms["registration"]["password"].value;
+        var passwordElement = document.forms["registration"]["password"];
+        var passwordCheck = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+        if (!password.match(passwordCheck)) {
+            passwordElement.classList.add('is-invalid');
+            valid = false;
+        }
+
+        return valid;
+    }
+</script>
+</body>
+</html>

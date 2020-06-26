@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+}
+
+.container {
+    padding-top: 39px;
+    padding-bottom: 126px;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+.btn.btn-dark.btn-sm {
+    margin-top: 20px;
+    width: 200px;
+}
+
+#message {
+    font-weight: bold;
+}

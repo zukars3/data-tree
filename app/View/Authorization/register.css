@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
+}
+
+.container {
+    padding-top: 39px;
+    padding-bottom: 126px;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+#radio {
+    padding-left: 25px;
+}
+
+#error {
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.hobby {
+    font-size: 16px;
+}
