@@ -39,10 +39,19 @@ class TreeController
 
     public function create($params): void
     {
+        if (!$params['id'] == 0) {
+            $this->database->update('categories', [
+                'has_child' => 1
+            ], [
+                'id[=]' => $params['id']
+            ]);
+        }
+
         $this->database->insert('categories', [
             'name' => $_POST['name'],
             'description' => $_POST['description'],
-            'parent_id' => $params['id']
+            'parent_id' => $params['id'],
+            'has_child' => 0
         ]);
 
         View::show('List/list.php');
@@ -72,6 +81,38 @@ class TreeController
                 "id[=]" => $element['id']
             ]
         ]);
+
+        if ($element['has_child'] == 1) {
+
+            $id = $params['id'];
+            while (true) {
+                $children = $this->database->select('categories', '*', ['parent_id[=]' => $id]);
+
+                foreach ($children as $child) {
+                    $this->database->delete("categories", [
+                        "AND" => [
+                            "id[=]" => $child['id']
+                        ]
+                    ]);
+
+                    if ($child['has_child'] == 1) {
+                        $id = $child['id'];
+                    }
+                }
+
+                if ($children[0]['has_child'] == 0) {
+                    foreach ($children as $child) {
+                        ;
+                        $this->database->delete("categories", [
+                            "AND" => [
+                                "id[=]" => $child['id']
+                            ]
+                        ]);
+                    }
+                    break;
+                }
+            }
+        }
 
         $this->database->delete("categories", [
             "AND" => [

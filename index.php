@@ -8,6 +8,7 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $rou
     $router->addRoute('GET', '/', 'AuthorizationController@index');
     $router->addRoute('POST', '/', 'AuthorizationController@login');
     $router->addRoute('POST', '/logout', 'AuthorizationController@logout');
+    $router->addRoute('GET', '/logout', 'AuthorizationController@logout');
     $router->addRoute('GET', '/register', 'AuthorizationController@registerShow');
     $router->addRoute('POST', '/register', 'AuthorizationController@register');
     $router->addRoute('GET', '/list', 'TreeController@show');

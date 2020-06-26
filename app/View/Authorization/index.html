@@ -18,10 +18,10 @@
             <input type="password" id="password" name="password" placeholder="******"/>
         </div>
         <p id="message"><?php if(isset($notification)) { echo $notification; } else echo "" ?></p>
-        <button type="submit" name="login">Login</button>
+        <button type="submit" id="login" name="login">Login</button>
     </form>
     <form method="get" action="/register">
-        <button type="submit" name="register">Register</button>
+        <button type="submit" id="register" name="register">Register</button>
     </form>
 </div>
 </body>

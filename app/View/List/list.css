@@ -1,0 +1,30 @@
+#log_out {
+    margin-bottom: 10px;
+}
+
+#add {
+    background-color: green;
+    font-weight: bold;
+    color: white;
+    border: black 1px solid;
+    text-decoration: none;
+}
+
+#edit {
+    background-color: yellow;
+    color: black;
+    border: black 1px solid;
+    text-decoration: none;
+}
+
+#delete {
+    background-color: red;
+    color: white;
+    border: black 1px solid;
+    text-decoration: none;
+}
+
+li {
+    font-weight: bold;
+    margin: 15px;
+}
