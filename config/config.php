@@ -2,8 +2,8 @@
 
 return [
     'database_type' => 'mysql',
-    'database_name' => 'userData',
+    'database_name' => 'database_name',
     'server' => '127.0.0.1',
-    'username' => 'karlis',
-    'password' => '@Tests12345'
+    'username' => 'username',
+    'password' => 'secret'
 ];
